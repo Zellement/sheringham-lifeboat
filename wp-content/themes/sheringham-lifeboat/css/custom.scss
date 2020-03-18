@@ -1,0 +1,674 @@
+/* -----------------------------
+### Variables
+----------------------------- */
+
+$tablet-width : 600px;
+$desktop-width : 1000px;
+$large-width: 1200px;
+$xlarge-width: 1400px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$large-width}) {
+    @content;
+  }
+}
+
+@mixin xlarge {
+  @media (min-width: #{$xlarge-width}) {
+    @content;
+  }
+}
+
+$primaryBlue: #003876;
+$primaryRed: #ef3e33;
+
+$darkGrey: #3a3a3a;
+
+$blackTransparent: rgba(0,0,0,0.3);
+$blueTransparent: rgba(0,56,118,0.3);
+$whiteTransparent: rgba(255,255,255,0.8);
+
+/* -----------------------------
+### Global
+----------------------------- */
+
+* {	margin: 0; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+body {
+	font: 400 1.2em/1.4 'Source Sans Pro', sans-serif;
+	@include desktop {
+		font: 400 1.3em/1.4 'Source Sans Pro', sans-serif;
+	}
+	color: $darkGrey;
+	background: #f6f6f6;
+	-webkit-smoothing: antialiased;
+}
+
+.btn {
+		padding: 0.5em 0.7em;
+		color: #fff;
+		background: $darkGrey;
+		border: 1px solid lighten($darkGrey, 20);
+		text-decoration: none;
+		margin: 0.5em 0;
+		display: inline-block;
+		font-family: "Source Serif Pro", serif;
+		font-size: 0.9em;
+		&:hover {
+			background: $primaryBlue;
+			color: #fff;
+		}
+}
+
+a {
+	color: $primaryBlue;
+	transition: 0.3s all ease;
+	&:hover {
+		color: $primaryRed;
+	}
+}
+
+h1 {
+	font-size: 2.2em;
+	font-family: "Source Serif Pro", serif;
+}
+
+h2 {
+	font-size: 1.8em;
+	font-family: "Source Serif Pro", serif;
+}
+
+h3 {
+	font-size: 1.5em;
+	font-family: "Source Serif Pro", serif;
+}
+
+.content-container {
+	max-width: $xlarge-width;
+	margin: 0 auto;
+	width: 100%;
+	padding: 20px 3%;
+	background: #fff;
+	@include tablet {
+		padding: 60px 3%;
+	}
+	@include desktop {
+		padding: 60px 6%;
+	}
+	&:after {
+		content: '';
+		clear: both;
+		display: block;
+	}
+}
+
+/* -----------------------------
+### Header
+----------------------------- */
+
+header.site-header {
+	width: 100%;
+	z-index: 10000;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 10000;
+	background: #fff;
+	@include tablet {
+		//background: rgba(255,255,255,0.8);
+		background: none;
+	}
+	h1, nav h1 {
+		display: none;
+	}
+	img.logo {
+		width: 70%;
+		float: left;
+		background: #fff;
+		max-width: 290px;
+		transition: 0.3s all ease;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+	#trigger-overlay {
+		font-size: 1rem;
+		float: right;
+		margin: 0;
+		margin-top: 0.8em;
+		background: #fff;
+		text-align: right;
+		cursor: pointer;
+		padding: 0.5em 1em;
+		transition: 0.3s all ease;
+		&:hover {
+			color: $primaryRed;
+		}
+		@media (min-width: 360px) {
+			margin-top: 1.4em;
+		}
+		@include tablet {
+			margin-top: 0;
+			padding: 1.7em 1em 1.65em 1em;
+			font-size: 1.2rem;
+		}
+	}
+	ul.social {
+		display: none;
+		margin-right: 0.3em;
+		@include tablet {
+			display: block;
+			float: right;
+			li {
+				display: inline-block;
+				float: right;
+				margin-right: 0.3em;
+				a {
+					color: #fff;
+					display: block;
+					padding: 1.5em 1em 1.45em 1em;
+					opacity: 0.4;
+					&:hover {
+						background: $primaryRed;
+						opacity: 1;
+						i {
+							text-shadow: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* -----------------------------
+### Home Page - Full BG
+----------------------------- */
+
+.full-bg {
+	min-height: 100vh;
+	background-size: cover;
+	background-position: center center;
+	padding-top: 160px;
+	@include tablet {
+		padding-top: 300px;
+	}
+
+	.index-hero {
+		padding: 0.5em;
+		color: $darkGrey;
+		h1 {
+			font-size: 3em;
+			line-height: 1em;
+			padding: 1rem;
+			display: inline-block;
+			background: $whiteTransparent;
+			@include tablet {
+				font-size: 4em;
+			}
+		}
+		p {
+			padding: 1rem;
+			margin-top: 0.3em;
+			background: $whiteTransparent;
+			@include tablet {
+				width: 70%;
+			}
+			@include desktop {
+				width: 40%;
+			}
+		}
+	}
+}
+
+.hero {
+	margin-top: 60px;
+	position: relative;
+	@include tablet {
+		margin-top: 0;
+	}
+	img {
+		width: 100%;
+		margin: 0;
+		display: block;
+	}
+	.hero-text {
+		position: absolute;
+		left: 0;
+		bottom: 5%;
+		@include large {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			text-align: center;
+			transform: translate(-50%,-40%);
+		}
+
+		p {
+			margin-top: 0.3em;
+			font-family: "Source Sans Pro", sans-serif;
+			font-weight: 300;
+		}
+
+		h1, p {	
+			padding: 1rem 0.4em;
+			background: $whiteTransparent;
+			position: relative;
+			@include tablet {
+			&:before {
+				display: block;
+				width: 10px;
+				background: rgba(255,255,255,0.3);
+				content: '';
+				height: 100%;
+				top: 0;
+				position: absolute;
+				}
+			}
+		}
+		@include tablet {
+			h1:before {
+				left: -13px;
+			}
+			p:before {
+				right: -13px;
+			}
+		}
+	}
+}
+
+
+
+/* -----------------------------
+### Navigation
+----------------------------- */
+
+.overlay {
+	position: fixed;
+	width: 50%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	z-index: 100000;
+	font-size: 1.2em;
+	font-family: "Source Serif Pro", serif;
+	background: url(../img/nav-bg.jpg) #fff no-repeat center center;
+	background-size: cover;
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	overflow: hidden;
+	border: none;
+	background: url(../img/cross.png) no-repeat center center;
+	text-indent: 200%;
+	color: transparent;
+	outline: none;
+	z-index: 100;
+	cursor: pointer;
+}
+
+/* Menu style */
+.overlay nav {
+	text-align: center;
+	position: relative;
+	top: 50%;
+	height: 70%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.overlay ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	display: inline-block;
+	height: 100%;
+	position: relative;
+}
+
+.overlay ul li {
+	display: block;
+	height: 20%;
+	height: calc(100% / 20);
+	min-height: 38px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.overlay ul li a {
+	display: block;
+	color: #fff;
+	-webkit-transition: color 0.2s;
+	transition: color 0.2s;
+	text-decoration: none;
+}
+
+.overlay ul li a:hover,
+.overlay ul li a:focus {
+	color: #f0f0f0;
+}
+
+/* Effects */
+.overlay-door {
+	visibility: hidden;
+	width: 0;
+	right: 0;
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	-webkit-transition: width 0.5s 0.3s, visibility 0s 0.8s;
+	transition: width 0.5s 0.3s, visibility 0s 0.8s;
+}
+
+.overlay-door.open {
+	visibility: visible;
+		width: 80%;
+	@include tablet {
+		width: 50%;
+	}
+	right: 0;
+	-webkit-transition: width 0.5s;
+	transition: width 0.5s;
+}
+
+.overlay-door nav {
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%);
+}
+
+.overlay-door nav,
+.overlay-door .overlay-close {
+	opacity: 0;
+	-webkit-transition: opacity 0.3s 0.5s;
+	transition: opacity 0.3s 0.5s;
+}
+
+.overlay-door.open nav,
+.overlay-door.open .overlay-close {
+	opacity: 1;
+	-webkit-transition-delay: 0.5s;
+	transition-delay: 0.5s;
+}
+
+.overlay-door.close nav,
+.overlay-door.close .overlay-close {
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+@media screen and (max-height: 30.5em) {
+	.overlay nav {
+		height: 80%;
+		font-size: 34px;
+	}
+	.overlay ul li {
+		min-height: 34px;
+	}
+}
+
+/* -----------------------------
+### Main Article
+----------------------------- */
+
+article {
+	width: 100%;
+	@include desktop {
+		width: 70%;
+		float: left;
+	}
+	h1 {
+		border-bottom: 1px solid $primaryBlue;
+		margin: 0 0 1em 0;
+	}
+	h2 {
+		margin: 0 0 1em 0;
+	}
+	h3 {
+		margin: 0 0 0.6em 0;
+	}
+	h4 {
+		margin: 0 0 0.4em 0;
+	}
+	h5 {
+		margin: 0 0 0.3em 0;
+	}
+	p {
+		&:first-of-type {
+			font-family: "Source Serif Pro", serif;
+			font-size: 1.1em;
+		}
+		line-height: 1.5em;
+		margin: 0 0 1.5em 0;
+		em {
+			font-style: italic;
+		}
+	}
+	ul {
+		margin: 0 0 1.5em 1.5em;
+		li {
+			list-style: disc;
+			line-height: 1.5em;
+		}
+	}
+	blockquote {
+		padding-top: 1.5em;
+		margin: 1em 0;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		p:first-of-type {
+		font-weight: 300;
+		font-family: "Source Sans Pro", sans-serif;
+
+		}
+	}
+	img {
+		width: 106%;
+		margin: 1em -3%;
+		height: auto;
+		@include tablet {
+			width: auto;
+			display: block;
+			max-width: 100%;
+			margin: 1em auto;
+			border: 1px solid #ccc;
+			padding: 0.2em;
+			border-radius: 30px 0 30px 0;
+		}
+	}
+	&.crew {
+		clear: both;
+		width: 100%;
+		float: none;
+	}
+	ul.crew-members {
+		margin: 0;
+		li {
+			list-style: none;
+			width: 48%;
+			float: left;
+			margin: 1em 1%;
+			display: inline-block;
+			span {
+				font-size: 0.9rem;
+				display: block;
+				line-height: 1.2rem;
+				&.name {
+					font-family: "Source Serif Pro", serif;
+					font-size: 1rem;
+				}
+			}
+			img {
+				width: 100%;
+				margin: 0 0 0.5em 0;
+			}			
+			@media only screen and (max-width: ($tablet-width)-1) {
+				&:nth-child(2n+1) {
+					clear: both;
+				}
+			}
+			@media only screen and (min-width: $tablet-width ) and (max-width: ($desktop-width)-1) {
+				width: 30%;
+				margin: 1em 1.5%;
+				&:nth-child(3n+1) {
+					clear: both;
+				}
+			}
+			@media only screen and (min-width: $desktop-width )  and (max-width: ($large-width)-1) {
+				width: 24%;
+				margin: 1.3em 0.5%;
+				&:nth-child(4n+1) {
+					clear: both;
+				}
+			}
+			@media only screen and (min-width: $large-width )  and (max-width: ($xlarge-width)-1) {
+				width: 19%;
+				margin: 1.5em 0.5%;
+				&:nth-child(5n+1) {
+					clear: both;
+				}
+			}
+			@media only screen and (min-width: $xlarge-width) {
+				width: 16%;
+				margin: 1.6em 0.3%;
+				&:nth-child(6n+1) {
+					clear: both;
+				}
+			}
+		}
+		&:after {
+			content: '';
+			clear: both;
+			display: block;
+		}
+	}
+	ul.lifeboat-history {
+		margin: 0;
+		li {
+			border-top: 1px solid #ccc;
+			padding-top: 2em;
+			list-style: none;
+			span {
+				display: block;
+				&.additional_info {
+					font-family: "Source Serif Pro", serif;
+					text-transform: uppercase;
+					font-size: 0.8rem;
+				}
+			}
+			@include tablet {
+				span.details {
+					margin-top: 1em;
+				}
+				img {
+					float: right;
+					margin: 0 0 1em 1em;
+				}
+			}
+		}
+	}
+	ul.shouts {
+		margin: 0;
+		li {
+			list-style: none;
+			padding: 1em 0;
+			border-bottom: 1px solid #ccc;
+			margin: 1em 0;
+			span.date-time {
+				font-family: "Source Serif Pro", serif;
+			}
+			ul {
+				margin: 0;
+				padding: 0;
+				padding: 0.3em 0;
+				li {
+					padding: 0.1em 0;
+					border: none;
+					margin: 0;
+					font-weight: 300;
+					span { display: block; font-weight: 400;}
+					@include tablet {
+						span {
+							display: inline-block;
+							width: 20%;
+						}
+					}
+				}
+			}
+		}
+	}
+	ul.shout-details {
+		margin: 0 0 1em 0;
+		li {
+			list-style: none;
+			font-weight: 300;
+			span {
+				display: block;
+				font-weight: 400;
+				@include tablet {
+					display: inline-block;
+					width: 20%;
+				}
+			}
+		}
+	}
+	ul.next-prev {
+		margin: 0;
+		li {
+			list-style: none;
+		}
+	}
+}
+
+aside {
+	width: 100%;
+	@include desktop {
+		width: 25%;
+		margin-top: 4em;
+		float: right;
+	}
+	.cta-donate {
+		padding: 1em 0;
+		border-bottom: 1px solid #ccc;
+	}	
+	.twitter-feed {
+		margin: 1em 0;
+	}
+}
+
+/* -----------------------------
+### Footer
+----------------------------- */
+
+footer {
+	background: $darkGrey;
+	color: #fff;
+	width: 100%;
+	transition: 0.3s all ease;
+	font-size: 1rem;
+	text-align: right;
+	padding: 0.5em;
+	color: #666;
+	a {
+		color: #666;
+	}
+}

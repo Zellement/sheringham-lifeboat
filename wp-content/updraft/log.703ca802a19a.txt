@@ -1,0 +1,12 @@
+1718.889 (1) Opened log file at time: Mon, 09 Mar 2020 22:50:38 +0000 on http://www.sheringhamlifeboat.co.uk
+1718.890 (1) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.16 WP: 5.2.5 PHP: 5.6.40 (fpm-fcgi, Linux web2.adtrakcommunity.co.uk 5.5.8-1.el7.elrepo.x86_64 #1 SMP Tue Mar 3 18:13:28 EST 2020 x86_64) MySQL: 10.2.31-MariaDB WPLANG: en_GB Server: Apache safe_mode: 0 max_execution_time: 900 memory_limit: 1024M (used: 20.8M | 21.8M) multisite: N openssl: OpenSSL 1.0.2u  20 Dec 2019 mcrypt: Y LANG:  ZipArchive::addFile: Y
+1718.910 (1) Free space on disk containing Updraft's temporary directory: 22545.9 MB
+1718.910 (1) It looks like WordPress's scheduler has started multiple instances of this resumption
+1718.912 (1) Terminate: check-in exists with activity within the last 30 seconds (time_mod=1583794236, time_now=1583794238.3, diff=2, size=n/a). This likely means that another UpdraftPlus run is at work; so we will exit.
+1718.912 (1) Rescheduling resumption 2: moving to 300 seconds from now (1583794538)
+1718.913 (1) To decrease the likelihood of overlaps, increasing resumption interval to: 300 + 0 = 300
+2717.541 (2) Opened log file at time: Mon, 09 Mar 2020 23:07:16 +0000 on http://www.sheringhamlifeboat.co.uk
+2717.541 (2) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.16 WP: 5.2.5 PHP: 5.6.40 (fpm-fcgi, Linux web2.adtrakcommunity.co.uk 5.5.8-1.el7.elrepo.x86_64 #1 SMP Tue Mar 3 18:13:28 EST 2020 x86_64) MySQL: 10.2.31-MariaDB WPLANG: en_GB Server: Apache safe_mode: 0 max_execution_time: 900 memory_limit: 1024M (used: 10.6M | 11M) multisite: N openssl: OpenSSL 1.0.2u  20 Dec 2019 mcrypt: Y LANG:  ZipArchive::addFile: Y
+2717.569 (2) Free space on disk containing Updraft's temporary directory: 22545.7 MB
+2717.570 (2) Backup run: resumption=2, nonce=703ca802a19a, file_nonce=703ca802a19a begun at=1583792519 (2718s ago), job type=backup, previous check-in=0s
+2717.570 (2) Terminate: This backup job is already finished (1).
